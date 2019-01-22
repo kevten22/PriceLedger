@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'plserver.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.path.join(BASE_DIR, 'db.postgresql'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'PricesDB',
+        'USER': 'postgres',
+        'PASSWORD':'postgres123',
+        'HOST': '',
+        'PORT': '5432' 
     }  
 }
 
