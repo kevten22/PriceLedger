@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 python-decouple = "*"
 django = "*"
+psycopg2 = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Item(models.Model):
@@ -8,3 +9,4 @@ class Item(models.Model):
     price = models.PositiveIntegerField()
     purchased = models.DateTimeField(auto_now_add=True)
     quantity = models.PositiveIntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
