@@ -1,3 +1,12 @@
 from rest_framework import serializers
+from .models import Item
 
-class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
+class ItemSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Item
+        fields = (name, price, purchased, quantity, user)
+
+class ItemViewSet(viewsets.ModelViewSet):
+    serializer_class = ItemSerializer
+    queryset = Item.objects.all()
