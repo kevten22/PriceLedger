@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from notes.api import ItemViewSet
+
+router = routers.DefaultRouter()
+router.register(r'prices', ItemViewSet)
 
 urlpatterns = [
-    path('prices/', include('prices.urls')),
+    path('prices/', include('router.urls')),
     path('admin/', admin.site.urls),
 ]
