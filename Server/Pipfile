@@ -10,7 +10,7 @@ python-decouple = "*"
 django = "*"
 psycopg2 = "*"
 djangorestframework = "*"
-rest-framework = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
