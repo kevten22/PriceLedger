@@ -3,15 +3,16 @@ from .models import Item
 from django.contrib.auth.models import User
 
 class ItemSerializer(serializers.HyperlinkedModelSerializer):
+    def create(self, validated_data):
+        user = self.context['request'].user
+        item = Item.objects.create(user=user, **validated_data)
+        return item
 
     class Meta:
         model = Item
         fields = ('name', 'price', 'purchased', 'quantity', 'user')
     
-    def create(self, validated_data):
-        user = self.context['request'].user
-        item = Item.objects.create(user=user, **validated_data)
-        return item
+    
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     url = serializers.HyperlinkedIdentityField(view_name="prices:user-detail")
